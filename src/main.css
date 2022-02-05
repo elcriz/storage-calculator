@@ -1,0 +1,288 @@
+:root {
+    --color-ui-dark: rgba(0, 125, 200, 1);
+    --color-ui-light: rgba(240, 240, 240, 1);
+    --color-ui-light-grey: rgba(230, 230, 230, 1);
+    --color-ui-grey: rgba(200, 200, 200, 1);
+    --color-text: rgba(90, 90, 90, 1);
+    --color-text-light: rgba(255, 255, 255, 1);
+    --color-primary: rgba(0, 150, 90, 1);
+    --color-primary-darker: rgba(0, 100, 40, 1);
+    --color-secondary: rgba(0, 90, 150, 1);
+
+    --color-crate: rgba(205, 205, 205, 1);
+    --color-box: rgba(255, 255, 255, 1);
+
+
+    --spacing: 8px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font: 13px/1.4em 'Helvetica', sans-serif;
+    color: var(--color-text);
+}
+
+.app {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--color-ui-light);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-ui-dark);
+    color: var(--color-text-light);
+}
+
+.header__heading {
+    margin: var(--spacing);
+    font-size: 16px;
+}
+
+.header__button {
+    margin: var(--spacing);
+}
+
+.totals {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.totals__stacks .totals__heading {
+    display: none;
+}
+
+.totals__stacks,
+.totals__amounts {
+    padding: calc(2 * var(--spacing)) 0 0;
+    box-sizing: border-box;
+}
+
+.totals__amounts {
+    text-align: center;
+    min-width: 75%;
+}
+
+.totals__amounts dl {
+    overflow: hidden;
+    min-width: 100%;
+}
+
+.totals__amounts dt,
+.totals__amounts dd {
+    box-sizing: border-box;
+    padding-top: calc(var(--spacing) / 3);
+    padding-bottom: calc(var(--spacing) / 3);
+}
+
+.totals__amounts dt {
+    float: left;
+    clear: left;
+    width: 50%;
+    padding-right: var(--spacing);
+    text-align: right;
+    font-weight: bold;
+}
+
+.totals__amounts dd {
+    margin-left: 50%;
+    padding-left: var(--spacing);
+    text-align: left;
+}
+
+.totals__amounts strong {
+    color: var(--color-primary);
+    font-size: 1.2em;
+}
+
+.totals__amounts abbr {
+    text-decoration: none;
+}
+
+.totals__amounts sup {
+    vertical-align: top;
+    font-size: 0.6em;
+}
+
+.stacks {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: var(--spacing) calc(2 * var(--spacing));
+    background-image: linear-gradient(var(--color-ui-light), var(--color-ui-light-grey));
+    border-radius: var(--spacing);
+}
+
+.stacks__type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 var(--spacing);
+}
+
+.stacks__heading {
+    position: relative;
+    order: 1;
+    width: 100%;
+    margin-top: calc(var(--spacing) / 2);
+    padding-top: var(--spacing);
+    border-top: 1px solid var(--color-ui-grey);
+    font-size: 13px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.stacks__heading::before,
+.stacks__heading::after {
+    position: absolute;
+    top: calc(-2 * var(--spacing));
+    display: block;
+    height: calc(2 * var(--spacing));
+    content: '';
+    border-left: 1px solid var(--color-ui-grey);
+}
+
+.stacks__heading::before {
+    left: 0;
+}
+
+.stacks__heading::after {
+    right: 0;
+}
+
+.stacks__heading span {
+    margin-left: calc(var(--spacing) / 3);
+    opacity: .75;
+    letter-spacing: 1px;
+    vertical-align: top;
+    font-size: 0.8em;
+    font-weight: normal;
+}
+
+.stacks__graphical {
+    order: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 0 calc(2 * var(--spacing));
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    margin: 0 calc(var(--spacing) / 3) calc(var(--spacing) / 2);
+}
+
+.stack__item {
+    margin: 1px 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--color-ui-grey);
+    border-right: 1px solid var(--color-ui-grey);
+    border-radius: calc(var(--spacing) / 4);
+}
+
+.stack__item--crate {
+    background-color: var(--color-crate);
+    width: calc(2.5 * var(--spacing));
+    height: calc(1.5 * var(--spacing));
+}
+
+.stack__item--large-box {
+    background-color: var(--color-box);
+    width: calc(2 * var(--spacing));
+    height: calc(2 * var(--spacing));
+}
+
+.stack__item--small-box {
+    background-color: var(--color-box);
+    width: calc(2 * var(--spacing));
+    height: calc(1.5 * var(--spacing));
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -52px;
+    padding: calc(2 * var(--spacing));
+    background-color: var(--color-ui-dark);
+    color: var(--color-text-light);
+}
+
+.control {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: calc(2 * var(--spacing));
+    padding-left: calc(5 * var(--spacing));
+}
+
+.control__heading {
+    position: absolute;
+    left: -38px;
+    top: 52px;
+    font-size: 12px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transform: rotate(-90deg);
+    width: 120px;
+    text-align: center;
+    opacity: .75;
+}
+
+.control__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(6 * var(--spacing));
+    height: calc(6 * var(--spacing));
+    font-size: 20px;
+}
+
+.control__display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: calc(var(--spacing) / 2) 0;
+    height: calc(5 * var(--spacing)); 
+    background-color: var(--color-secondary);
+    border-radius: var(--spacing);
+}
+
+.button {
+    padding: var(--spacing) calc(2 * var(--spacing));
+    appearance: none;
+    border: none;
+    border-radius: var(--spacing);
+    text-transform: uppercase;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button[data-variant="primary"] {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border-bottom: calc(var(--spacing) / 2) solid var(--color-primary-darker);
+}
+
+.button[data-variant="secondary"] {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+}
+
+.button:disabled {
+    cursor: not-allowed;
+    opacity: .5;
+}
