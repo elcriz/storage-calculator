@@ -33,7 +33,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-	height: 100vh;
+	min-height: 100vh;
+	min-height: -webkit-fill-available;
     width: 100%;
     background-color: var(--color-ui-light);
 }
