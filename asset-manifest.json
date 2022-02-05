@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/storage-calculator/static/css/main.9a0930fe.css",
+    "main.css": "/storage-calculator/static/css/main.611d4f0b.css",
     "main.js": "/storage-calculator/static/js/main.9a1e0d16.js",
     "index.html": "/storage-calculator/index.html",
-    "main.9a0930fe.css.map": "/storage-calculator/static/css/main.9a0930fe.css.map",
+    "main.611d4f0b.css.map": "/storage-calculator/static/css/main.611d4f0b.css.map",
     "main.9a1e0d16.js.map": "/storage-calculator/static/js/main.9a1e0d16.js.map"
   },
   "entrypoints": [
-    "static/css/main.9a0930fe.css",
+    "static/css/main.611d4f0b.css",
     "static/js/main.9a1e0d16.js"
   ]
 }
