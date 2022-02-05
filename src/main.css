@@ -12,11 +12,16 @@
     --color-crate: rgba(205, 205, 205, 1);
     --color-box: rgba(255, 255, 255, 1);
 
-
     --spacing: 8px;
 }
 
+html {
+	height: -webkit-fill-available;
+}
+
 body {
+	min-height: 100vh;
+	min-height: -webkit-fill-available;
     margin: 0;
     padding: 0;
     font: 13px/1.4em 'Helvetica', sans-serif;
@@ -28,7 +33,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
+	height: 100vh;
     width: 100%;
     background-color: var(--color-ui-light);
 }
@@ -255,7 +260,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: calc(var(--spacing) / 2) 0;
-    height: calc(5 * var(--spacing)); 
+    height: calc(5 * var(--spacing));
     background-color: var(--color-secondary);
     border-radius: var(--spacing);
 }
