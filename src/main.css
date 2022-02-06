@@ -75,6 +75,10 @@ body {
     display: none;
 }
 
+.totals__heading {
+	margin-bottom: 0;
+}
+
 .totals__stacks,
 .totals__amounts {
     padding: calc(2 * var(--spacing)) 0 0;
@@ -132,7 +136,9 @@ body {
     justify-content: center;
     align-items: flex-end;
     padding: var(--spacing) calc(2 * var(--spacing));
+	margin-bottom: var(--spacing);
     background-image: linear-gradient(var(--color-ui-light), var(--color-ui-light-grey));
+	border-bottom: 1px solid var(--color-ui-grey);
 }
 
 .stacks__type {
@@ -283,20 +289,21 @@ body {
     justify-content: center;
     align-items: center;
 	margin-top: calc(var(--spacing) / 2);
-    margin-left: calc(2 * var(--spacing));
     padding-left: calc(5 * var(--spacing));
+	padding-right: calc(2 * var(--spacing));
+	border-right: 1px solid var(--color-secondary);
 }
 
-.control:first-child {
-	margin-left: calc(-3 * var(--spacing));
+.control:last-child {
+	border-right: none;
 }
 
 .control__heading {
     position: absolute;
-    left: -38px;
+    left: -36px;
     top: 52px;
     font-size: 12px;
-    font-weight: 300;
+    /* font-weight: 300; */
     text-transform: uppercase;
     letter-spacing: 1px;
     transform: rotate(-90deg);
@@ -347,6 +354,8 @@ body {
 .button[data-variant="secondary"] {
     background-color: var(--color-secondary);
     color: var(--color-yellow);
+	border-bottom: 1px solid var(--color-secondary-darker);
+	border-right: 1px solid var(--color-secondary-darker);
 }
 
 .button:disabled {
