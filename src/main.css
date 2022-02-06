@@ -8,6 +8,7 @@
     --color-primary: rgba(0, 150, 90, 1);
     --color-primary-darker: rgba(0, 100, 40, 1);
     --color-secondary: rgba(0, 90, 150, 1);
+    --color-secondary-darker: rgba(0, 40, 100, 1);
 
     --color-crate: rgba(205, 205, 205, 1);
     --color-box: rgba(255, 255, 255, 1);
@@ -191,11 +192,13 @@ body {
 }
 
 .stack__item {
+    position: relative;
     margin: 1px 0;
     box-sizing: border-box;
     border-bottom: 1px solid var(--color-ui-grey);
     border-right: 1px solid var(--color-ui-grey);
     border-radius: calc(var(--spacing) / 4);
+    box-shadow: 0px 4px 8px rgba(90, 90, 90, .1);
 }
 
 .stack__item--crate {
@@ -204,16 +207,55 @@ body {
     height: calc(1.5 * var(--spacing));
 }
 
+.stack__item--crate::before,
+.stack__item--crate::after {
+    position: absolute;
+    bottom: -2px;
+    width: 3px;
+    height: calc(var(--spacing) / 4);
+    background-color: var(--color-ui-grey);
+    content: '';
+}
+
+.stack__item--crate::before {
+    left: calc(var(--spacing) / 4);
+}
+
+.stack__item--crate::after {
+    right: calc(var(--spacing) / 4);
+}
+
 .stack__item--large-box {
     background-color: var(--color-box);
     width: calc(2 * var(--spacing));
     height: calc(2 * var(--spacing));
 }
 
+.stack__item--large-box::before,
+.stack__item--small-box::before {
+    position: absolute;
+    top: 3px;
+    left: 50%;
+    display: block;
+    content: '';
+    width: 5px;
+    height: 2px;
+    margin-left: -3px;
+    border-radius: 3px;
+    border: 1px solid var(--color-ui-grey);
+    background-color: rgb(230, 230, 230);
+}
+
 .stack__item--small-box {
     background-color: var(--color-box);
     width: calc(2 * var(--spacing));
     height: calc(1.5 * var(--spacing));
+}
+
+.stack__item--small-box::before {
+    width: 5px;
+    height: 1px;
+    margin-left: -4px;
 }
 
 .controls {
@@ -254,6 +296,7 @@ body {
     letter-spacing: 1px;
     transform: rotate(-90deg);
     width: 120px;
+    color: var(--color-secondary-darker);
     text-align: center;
     opacity: .75;
 }
@@ -281,7 +324,7 @@ body {
     padding: var(--spacing) calc(2 * var(--spacing));
     appearance: none;
     border: none;
-    border-radius: var(--spacing);
+    border-radius: calc(var(--spacing) / 1.5);
     text-transform: uppercase;
     font-family: 'Helvetica', sans-serif;
     font-weight: bold;
