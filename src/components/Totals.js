@@ -58,16 +58,10 @@ export const Totals = ({
                     Space required
                 </h2>
                 <dl>
-                    <dt>Total number of items</dt>
+                    <dt>Number of items</dt>
                     <dd>
                         {itemsAmount} box{itemsAmount === 1 ? '' : 'es'}, {stacksAmount} stack{stacksAmount === 1 ? '' : 's'}
                     </dd>
-                    {Object.keys(stackTypes).map((stackType, index) => (
-                        <React.Fragment key={index}>
-                            <dt>{stackTypes[stackType].label}</dt>
-                            <dd>{amounts[stackType]}</dd>
-                        </React.Fragment>
-                    ))}
                     <dt>Floor space</dt>
                     <dd>
                         <strong>

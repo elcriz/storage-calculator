@@ -1,12 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@300;400;700&display=swap');
+
 :root {
     --color-ui-dark: rgba(0, 125, 200, 1);
     --color-ui-light: rgba(240, 240, 240, 1);
     --color-ui-light-grey: rgba(230, 230, 230, 1);
     --color-ui-grey: rgba(200, 200, 200, 1);
+	--color-yellow: rgba(245, 200, 0, 1);
     --color-text: rgba(90, 90, 90, 1);
     --color-text-light: rgba(255, 255, 255, 1);
-    --color-primary: rgba(0, 150, 90, 1);
+    --color-primary: rgba(20, 150, 90, 1);
     --color-primary-darker: rgba(0, 100, 40, 1);
+	--color-primary-lighter: rgba(60, 190, 130, .5);
     --color-secondary: rgba(0, 90, 150, 1);
     --color-secondary-darker: rgba(0, 40, 100, 1);
 
@@ -19,7 +23,7 @@
 body {
     margin: 0;
     padding: 0;
-    font: 13px/1.4em 'Helvetica', sans-serif;
+    font: 13px/1.4em 'Bitter', 'Helvetica', sans-serif;
     color: var(--color-text);
 }
 
@@ -50,8 +54,9 @@ body {
 }
 
 .header__heading {
-    margin: var(--spacing);
+    margin: var(--spacing) calc(2 * var(--spacing));
     font-size: 16px;
+	text-shadow: 1px 1px 2px var(--color-secondary);
 }
 
 .header__button {
@@ -128,7 +133,6 @@ body {
     align-items: flex-end;
     padding: var(--spacing) calc(2 * var(--spacing));
     background-image: linear-gradient(var(--color-ui-light), var(--color-ui-light-grey));
-    border-radius: var(--spacing);
 }
 
 .stacks__type {
@@ -278,6 +282,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+	margin-top: calc(var(--spacing) / 2);
     margin-left: calc(2 * var(--spacing));
     padding-left: calc(5 * var(--spacing));
 }
@@ -307,39 +312,41 @@ body {
     align-items: center;
     width: calc(6 * var(--spacing));
     height: calc(6 * var(--spacing));
-    font-size: 20px;
+    font-size: 28px;
 }
 
 .control__display {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: calc(var(--spacing) / 2) 0;
     height: calc(5 * var(--spacing));
-    background-color: var(--color-secondary);
-    border-radius: var(--spacing);
+	font-size: 20px;
+	text-shadow: 1px 1px 2px var(--color-secondary);
 }
 
 .button {
     padding: var(--spacing) calc(2 * var(--spacing));
     appearance: none;
     border: none;
-    border-radius: calc(var(--spacing) / 1.5);
+    border-radius: var(--spacing);
     text-transform: uppercase;
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Bitter', 'Helvetica', sans-serif;
     font-weight: bold;
     cursor: pointer;
 }
 
 .button[data-variant="primary"] {
     background-color: var(--color-primary);
-    color: var(--color-text-light);
+    color: var(--color-yellow);
     border-bottom: calc(var(--spacing) / 2) solid var(--color-primary-darker);
+	border-right: 1px solid var(--color-primary-darker);
+	border-top: 1px solid var(--color-primary-lighter);
+	border-left: 1px solid var(--color-primary-lighter);
 }
 
 .button[data-variant="secondary"] {
     background-color: var(--color-secondary);
-    color: var(--color-text-light);
+    color: var(--color-yellow);
 }
 
 .button:disabled {
