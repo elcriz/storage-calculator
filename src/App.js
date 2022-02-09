@@ -48,7 +48,10 @@ const App = () => {
 			/>
 			{isAddVisible && (
 				<AddOtherItem
-					onAdd={addOtherItem}
+					onAdd={(otherItem) => {
+						addOtherItem(otherItem);
+						setIsAddVisible(false);
+					}}
 					onCancel={() => {
 						setIsAddVisible(false);
 					}}
