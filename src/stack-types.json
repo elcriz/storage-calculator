@@ -2,7 +2,6 @@
     "largeBoxes": {
         "label": "Large boxes",
         "maxAmount": 6,
-        "maxHeight": 200,
         "width": 34,
         "length": 49,
         "height": 34
@@ -10,7 +9,6 @@
     "smallBoxes": {
         "label": "Small boxes",
         "maxAmount": 8,
-        "maxHeight": 200,
         "width": 33,
         "length": 49,
         "height": 25
@@ -18,9 +16,30 @@
     "crates": {
         "label": "Crates",
         "maxAmount": 5,
-        "maxHeight": 190,
         "width": 41,
         "length": 78,
         "height": 38
+	},
+
+	"curver": {
+		"label": "Curver",
+        "maxAmount": 7,
+        "width": 44,
+        "length": 52,
+        "height": 27
+	},
+	"flatCrates": {
+		"label": "Flat crates",
+        "maxAmount": 11,
+        "width": 56,
+        "length": 78,
+        "height": 18
+	},
+	"xmasCrates": {
+		"label": "X-Mas crates",
+        "maxAmount": 5,
+        "width": 38,
+        "length": 45,
+        "height": 37
 	}
 }

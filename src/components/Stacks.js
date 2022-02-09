@@ -60,6 +60,11 @@ export const Stacks = ({
                                                 'stack__item--large-box': stackType === 'largeBoxes',
                                                 'stack__item--small-box': stackType === 'smallBoxes',
                                                 'stack__item--crate': stackType === 'crates',
+
+												// Additional item types:
+												'stack__item--curver': stackType === 'curver',
+												'stack__item--flat-crate': stackType === 'flatCrates',
+												'stack__item--xmas-crate': stackType === 'xmasCrates',
                                             })}
                                         />
                                     ))}

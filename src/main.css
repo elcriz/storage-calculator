@@ -211,10 +211,28 @@ body {
     box-shadow: 0px 4px 8px rgba(90, 90, 90, .1);
 }
 
+.stack__item--curver {
+    background-color: var(--color-crate);
+    width: calc(2 * var(--spacing));
+    height: calc(1.5 * var(--spacing));
+}
+
 .stack__item--crate {
     background-color: var(--color-crate);
     width: calc(2.5 * var(--spacing));
     height: calc(1.5 * var(--spacing));
+}
+
+.stack__item--flat-crate {
+    background-color: var(--color-crate);
+    width: calc(2.75 * var(--spacing));
+    height: calc(1 * var(--spacing));
+}
+
+.stack__item--xmas-crate {
+    background-color: var(--color-crate);
+    width: calc(2 * var(--spacing));
+    height: calc(2 * var(--spacing));
 }
 
 .stack__item--crate::before,
