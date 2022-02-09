@@ -21,7 +21,7 @@ export const useAmounts = () => {
         amounts,
         setAmounts,
         stackTypes,
-        onReset: () => setAmounts(defaultState),
+        onResetAmounts: () => setAmounts(defaultState),
     };
 };
 

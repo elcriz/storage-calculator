@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Stacks from './Stacks';
+import OtherItems from './OtherItems';
 
 export const Totals = ({
     stackTypes,
     amounts,
+	otherItems,
+	...rest
 }) => {
     const stackAmounts = Object.keys(stackTypes)
         .reduce((previous, stackType) => ({
@@ -54,27 +57,41 @@ export const Totals = ({
                 </div>
             )}
             <div className="totals__amounts">
-                <h2 className="totals__heading">
-                    Space required
-                </h2>
-                <dl>
-                    <dt>Number of items</dt>
-                    <dd>
-                        {itemsAmount} box{itemsAmount === 1 ? '' : 'es'}, {stacksAmount} stack{stacksAmount === 1 ? '' : 's'}
-                    </dd>
-                    <dt>Floor space</dt>
-                    <dd>
-                        <strong>
-                            {floorSpace.toFixed(2)} <abbr title="Square metres">m<sup>2</sup></abbr>
-                        </strong>
-                    </dd>
-                    <dt>Room space</dt>
-                    <dd>
-                        <strong>
-                            {roomSpace.toFixed(2)} <abbr title="Square metres">m<sup>3</sup></abbr>
-                        </strong>
-                    </dd>
-                </dl>
+				{otherItems.length > 0 && (
+					<section className="totals__amounts-section">
+						<h2 className="totals__heading">
+							Other items
+						</h2>
+						<OtherItems
+							className="totals__other-items"
+							otherItems={otherItems}
+							{...rest}
+						/>
+					</section>
+				)}
+				<section className="totals__amounts-section">
+					<h2 className="totals__heading">
+						Space required
+					</h2>
+					<dl>
+						<dt>Number of items</dt>
+						<dd>
+							{itemsAmount} box{itemsAmount === 1 ? '' : 'es'}, {stacksAmount} stack{stacksAmount === 1 ? '' : 's'}, {otherItems.length} item{otherItems.length === 1 ? '' : 's'}
+						</dd>
+						<dt>Floor space</dt>
+						<dd>
+							<strong>
+								{floorSpace.toFixed(2)} <abbr title="Square metres">m<sup>2</sup></abbr>
+							</strong>
+						</dd>
+						<dt>Room space</dt>
+						<dd>
+							<strong>
+								{roomSpace.toFixed(2)} <abbr title="Square metres">m<sup>3</sup></abbr>
+							</strong>
+						</dd>
+					</dl>
+				</section>
             </div>
         </div>
     );
@@ -83,6 +100,7 @@ export const Totals = ({
 Totals.propTypes = {
     stackTypes: PropTypes.object.isRequired,
     amounts: PropTypes.object.isRequired,
+	otherItems: PropTypes.array,
 };
 
 export default Totals;
