@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import OtherItemModel from "../models/OtherItemModel";
+import { useEffect, useState } from 'react';
+import OtherItemModel from '../models/OtherItemModel';
 import { getFromStorage, saveToStorage } from '../services/storageService';
 
 const defaultState = [];
