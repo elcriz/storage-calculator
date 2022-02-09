@@ -54,6 +54,7 @@ export const AddOtherItem = ({
 						type="text"
 						defaultValue={item.label}
 						onChange={handleChange}
+						autoFocus
 					/>
 				</div>
 				<div className="form-field">
