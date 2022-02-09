@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import Button from './Button';
 
 export const Header = ({
+	onAddClick,
     onReset,
 }) => {
     const handleResetClick = () => {
@@ -13,20 +14,30 @@ export const Header = ({
     return (
         <header className="header">
             <h1 className="header__heading">
-                Moving Box Storage Calculator
+                Storage Calculator
             </h1>
-            <Button
-                className="header__button"
-                onClick={handleResetClick}
-                variant="secondary"
-            >
-                Reset
-            </Button>
+			<div className="header__buttons">
+				<Button
+					className="header__button header__button--add"
+					variant="primary"
+					onClick={onAddClick}
+				>
+					Add item
+				</Button>
+				<Button
+					className="header__button header__button--reset"
+					variant="secondary"
+					onClick={handleResetClick}
+				>
+					Reset
+				</Button>
+			</div>
         </header>
     );
 };
 
 Header.propTypes = {
+	onAddClick: PropTypes.func.isRequired,
     onReset: PropTypes.func.isRequired,
 };
 

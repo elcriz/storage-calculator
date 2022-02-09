@@ -1,37 +1,61 @@
+import { useState } from 'react';
 import Header from './components/Header';
 import Totals from './components/Totals';
 import Controls from './components/Controls';
+import AddOtherItem from './components/AddOtherItem';
 import useAmounts from './hooks/useAmounts';
+import useOtherItems from './hooks/useOtherItems';
 
 const App = () => {
-  const { amounts, setAmounts, stackTypes, onReset } = useAmounts();
+	const [isAddVisible, setIsAddVisible] = useState(false);
+	const { amounts, setAmounts, stackTypes, onResetAmounts } = useAmounts();
+	const { otherItems, addOtherItem, duplicateOtherItem, removeOtherItem, onResetOtherItems } = useOtherItems();
 
-  const handleClick = (boxType, isRaise = true) => {
-    setAmounts(currentAmounts => ({
-      ...currentAmounts,
-      [boxType]: isRaise
-        ? currentAmounts[boxType] + 1
-        : (amount => (amount - 1 < 0 ? 0 : amount - 1))
-          (currentAmounts[boxType]),
-    }));
-  };
+	const handleClick = (boxType, isRaise = true) => {
+		setAmounts(currentAmounts => ({
+			...currentAmounts,
+			[boxType]: isRaise
+				? currentAmounts[boxType] + 1
+				: (amount => (amount - 1 < 0 ? 0 : amount - 1))
+					(currentAmounts[boxType]),
+		}));
+	};
 
-  return (
-    <div className="app">
-      <Header
-        onReset={onReset}
-      />
-      <Totals
-        stackTypes={stackTypes}
-        amounts={amounts}
-      />
-      <Controls
-        stackTypes={stackTypes}
-        amounts={amounts}
-        onClick={handleClick}
-      />
-    </div>
-  );
+	const handleReset = () => {
+		onResetAmounts();
+		onResetOtherItems();
+	};
+
+	return (
+		<div className="app">
+			<Header
+				onAddClick={() => {
+					setIsAddVisible(true);
+				}}
+				onReset={handleReset}
+			/>
+			<Totals
+				stackTypes={stackTypes}
+				amounts={amounts}
+				otherItems={otherItems}
+				onRemoveOtherItem={removeOtherItem}
+				onDuplicateOtherItem={duplicateOtherItem}
+			/>
+			<Controls
+				stackTypes={stackTypes}
+				amounts={amounts}
+				onClick={handleClick}
+			/>
+			{isAddVisible && (
+				<AddOtherItem
+					onAdd={addOtherItem}
+					onCancel={() => {
+						setIsAddVisible(false);
+					}}
+				/>
+			)}
+		</div>
+	);
 };
 
 export default App;
