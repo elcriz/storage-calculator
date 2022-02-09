@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { getFromStorage, saveToStorage } from '../services/storageService';
 import stackTypes from '../stack-types.json';
 
 const defaultState = Object.keys(stackTypes)
@@ -9,14 +10,11 @@ const defaultState = Object.keys(stackTypes)
 
 export const useAmounts = () => {
     const [amounts, setAmounts] = useState(
-        (savedState => savedState
-            ? JSON.parse(savedState)
-            : defaultState
-        )(window.localStorage.getItem('storageCalculator'))
+		getFromStorage('storageCalculator', defaultState)
     );
 
     useEffect(() => {
-        window.localStorage.setItem('storageCalculator', JSON.stringify(amounts));
+		saveToStorage('storageCalculator', amounts);
     }, [amounts]);
 
     return {
