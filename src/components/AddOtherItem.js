@@ -18,7 +18,8 @@ export const AddOtherItem = ({
 		}));
 	};
 
-	const handleSubmit = () => {
+	const handleSubmit = (event) => {
+		event.preventDefault();
 		setIsSubmitted(true);
 		if (isValid) {
 			const itemToAdd = new OtherItemModel(item);
