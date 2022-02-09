@@ -32,14 +32,18 @@ export const Totals = ({
             previous + stackAmounts[stackType] * (
                 stackTypes[stackType].width * stackTypes[stackType].length
             ) / 10000
-        ), 0);
+        ), 0) + otherItems.reduce((previous, item) => (
+			previous + ((item.width * item.length) / 10000)
+		), 0);
 
     const roomSpace = Object.keys(amounts)
         .reduce((previous, boxType) => {
-            const squareCm = stackTypes[boxType].width * stackTypes[boxType].length
+            const cubicCm = stackTypes[boxType].width * stackTypes[boxType].length
                 * stackTypes[boxType].height;
-            return previous + (amounts[boxType] * (squareCm / 1000000));
-        }, 0);
+            return previous + (amounts[boxType] * (cubicCm / 1000000));
+        }, 0) + otherItems.reduce((previous, item) => (
+			previous + (item.width * item.length * item.height / 1000000)
+		), 0);
 
     return (
         <div className="totals">
@@ -71,7 +75,7 @@ export const Totals = ({
 				)}
 				<section className="totals__amounts-section">
 					<h2 className="totals__heading">
-						Space required
+						{otherItems.length > 0 ? 'Total s' : 'S'}pace required
 					</h2>
 					<dl>
 						<dt>Number of items</dt>
